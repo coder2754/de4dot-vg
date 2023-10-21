@@ -30,10 +30,9 @@ jobs:
     - name: Create ZIP
       run: |
         Compress-Archive -Path Release/* -DestinationPath de4dot-cex
-      
-    - name: Release
-      uses: softprops/action-gh-release@v1
+        
+    - name: Archive ViewDistanceTweaks
+      uses: actions/upload-artifact@v2
       with:
-          files: de4dot-cex.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        path: de4dot-cex.zip
+        name: de4dot-cex.zip
